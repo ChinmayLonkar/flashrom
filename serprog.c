@@ -291,7 +291,7 @@ static int sp_stream_buffer_op(uint8_t cmd, uint32_t parmlen, uint8_t *parms)
 		return 1;
 	}
 	sp[0] = cmd;
-	memcpy(&(sp[1]), parms, parmlen);
+	memcpy(&(sp[1]), &parms, parmlen);
 
 	if (sp_streamed_transmit_bytes >= (1 + parmlen + sp_device_serbuf_size)) {
 		if (sp_flush_stream() != 0) {
